@@ -1,7 +1,11 @@
 from flask import Flask
 from threading import Thread
+import logging
 
 app = Flask('')
+
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():

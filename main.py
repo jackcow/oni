@@ -1,4 +1,5 @@
 import os
+import discord
 from discord.ext import commands
 from replit import db
 from web_server import online
@@ -40,12 +41,17 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
-
+  # await client.change_presence(activity=discord.Activity(type=0, name=f"in {len(db.keys())} Servers"))
+  await client.change_presence(activity=discord.Activity(type=0, name=f"with {len(set(client.get_all_members()))} Users"))
 
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
+
+
+
+
 
 online()
 client.run(os.getenv('TOKEN'))
