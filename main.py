@@ -1,53 +1,40 @@
 import os
-import json
 from discord.ext import commands
+from replit import db
 
 
 def get_prefix(client, message):
-    with open('prefixes.json', 'r') as file:
-        prefixes = json.load(file)
+  try: 
+    return db[str(message.guild.id)]
+  except:
+    db[str(message.guild.id)] = '.'
 
-    return prefixes[str(message.guild.id)]
-
+  return db[str(message.guild.id)]
 
 client = commands.Bot(command_prefix=get_prefix)
 
 
 @client.event
 async def on_guild_join(guild):
-    with open('prefixes.json', 'r') as file:
-        prefixes = json.load(file)
-
-    prefixes[str(guild.id)] = '.'
-
-    with open('prefixes.json', 'w') as file:
-        json.dump(prefixes, file, indent=4)
+  db[str(guild.id)] = '.'
 
 
 @client.event
 async def on_guild_remove(guild):
-    with open('prefixes.json', 'r') as file:
-        prefixes = json.load(file)
-
-    prefixes.pop(str(guild.id))
-
-    with open('prefixes.json', 'w') as file:
-        json.dump(prefixes, file, indent=4)
+  del db[str(guild.id)]
 
 
 @client.command()
 async def changeprefix(ctx, prefix):
-    """change the prefix"""
-    with open('prefixes.json', 'r') as file:
-        prefixes = json.load(file)
-
-    prefixes[str(ctx.guild.id)] = prefix
-
-    with open('prefixes.json', 'w') as file:
-        json.dump(prefixes, file, indent=4)
+  db[str(ctx.guild.id)] = prefix
 
 
-
+@client.event
+async def on_message(message):
+  if message.author == client.user:
+    return
+  if message.content.startswith('oni.prefix'):
+    await message.
 
 
 
