@@ -11,6 +11,8 @@ replit = "^2.0.0"
 flask = "^1.1.2"
 youtube-dl = "^2021.3.3"
 tasks = "^2.5.1"
+yahoo-finance = "^1.4.0"
+yfinance = "^0.1.55"
 
 [tool.poetry.dev-dependencies]
 
