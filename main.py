@@ -5,49 +5,46 @@ from replit import db
 
 def get_prefix(client, message):
   try: 
-    return db[str(message.guild.id)]
+    db[message.guild.id]
   except:
-    db[str(message.guild.id)] = '.'
+    db[message.guild.id] = '.'
 
-  return db[str(message.guild.id)]
+  return db[message.guild.id]
+
 
 client = commands.Bot(command_prefix=get_prefix)
 
 
 @client.event
 async def on_guild_join(guild):
-  db[str(guild.id)] = '.'
+  db[guild.id] = '.'
 
 
 @client.event
 async def on_guild_remove(guild):
-  del db[str(guild.id)]
+  del db[guild.id]
 
 
 @client.command()
 async def changeprefix(ctx, prefix):
-  db[str(ctx.guild.id)] = prefix
-
-
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
-  if message.content.startswith('oni.prefix'):
-    await message.
-
-
-
+  """Changes Oni's prefix for this server"""
+  db[ctx.guild.id] = prefix
 
 
 @client.event
 async def on_command_error(ctx, error):
-  await ctx.send(f"wtf bro: {error}")
+  await ctx.send(f"wtf bro?\n {error}")
 
 
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
+
+
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
 
 
 client.run(os.getenv('TOKEN'))
