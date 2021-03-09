@@ -10,6 +10,7 @@ discord = "^1.0.1"
 replit = "^2.0.0"
 flask = "^1.1.2"
 youtube-dl = "^2021.3.3"
+tasks = "^2.5.1"
 
 [tool.poetry.dev-dependencies]
 
