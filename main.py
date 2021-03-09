@@ -1,6 +1,7 @@
 import os
 from discord.ext import commands
 from replit import db
+from web_server import online
 
 
 def get_prefix(client, message):
@@ -46,5 +47,5 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
-
+online()
 client.run(os.getenv('TOKEN'))
