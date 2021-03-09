@@ -1,5 +1,6 @@
 from discord.ext import commands
 import discord
+import pytz
 from datetime import datetime
 import yfinance as yf
 
@@ -13,7 +14,7 @@ class Stocks(commands.Cog):
   async def stock(self, ctx, *, ticker):
     """return stock info (WIP)"""
 
-    colors = [0x008509, #green
+    colors = [0x008b00, #green
               0x8b0000] #red
 
     for t in ticker.split():
@@ -34,7 +35,7 @@ class Stocks(commands.Cog):
       embed.add_field(name="Day Low", value='{0:.2f}'.format(stock.info['dayLow']), inline=True)
       embed.add_field(name="Bid", value='{0:.2f}'.format(stock.info['bid']), inline=True)
 
-      embed.set_footer(text=str(datetime.now().isoformat(' ', 'seconds')))
+      embed.set_footer(text=str(datetime.now(pytz.timezone('America/New_York')).strftime("%Y-%m-%d %H:%M:%S EST")))
       await ctx.send(embed=embed)
     
 
