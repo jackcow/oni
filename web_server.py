@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from threading import Thread
 import logging
 
@@ -8,23 +8,16 @@ app = Flask('')
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
-#PAGES
-# ---------------------------------------
 
 @app.route('/')
-def base():
-  return render_template('base.html')
+def home():
+    return 'six'
 
-
-@app.route('/six')
-def six():
-  return 'six'
-
-# ---------------------------------------
 
 def run():
-  app.run(host='0.0.0.0',port=8080)
+    app.run(host='0.0.0.0', port=8080)
+
 
 def online():
-  t = Thread(target=run)
-  t.start()
+    t = Thread(target=run)
+    t.start()
