@@ -6,6 +6,8 @@ from discord.utils import get
 
 ytdl_format_options = {
     'format': 'bestaudio/best',
+    'extractaudio': True,
+    'restrictfilenames': True,
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
     'audioformat': 'mp3',
     'quiet': True,
@@ -14,7 +16,8 @@ ytdl_format_options = {
     'source_address': '0.0.0.0'
 }
 
-ffmpeg_options = {'options': '-vn'}
+ffmpeg_options = {'before_options': '-reconnect 1 -reconnect_streamed 1  -reconnect_delay_max 5',    
+                  'options': '-vn'}
 
 ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
 
@@ -82,10 +85,10 @@ class Audio(commands.Cog):
                                   after=lambda e: print('Player error: %s' % e)
                                   if e else None)
 
-        await ctx.send('now playing: {}'.format(voice.title))
+        await ctx.send('> now playing: {}'.format(voice.title))
         # await self.client.change_presence(activity=discord.Activity(type=0, name="{}".format(voice.title)))
 
-    @commands.command()
+    @commands.command(aliases=["pau"])
     async def pause(self, ctx):
         """pause audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
@@ -96,7 +99,7 @@ class Audio(commands.Cog):
         # else:
         #     print("music not playing")
 
-    @commands.command(aliases=["continue"])
+    @commands.command(aliases=["continue",'res'])
     async def resume(self, ctx):
         """resume audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
@@ -110,7 +113,7 @@ class Audio(commands.Cog):
     @commands.command(aliases=["vol"])
     async def volume(self, ctx):
         """sends volume instructions"""
-        await ctx.send("right click me to change volume.")
+        await ctx.send("> right click me to change volume.")
 
 
 def setup(client):

@@ -76,6 +76,7 @@ async def on_ready():
 async def reload(ctx, extension):
     """reload module"""
     client.reload_extension(f'cogs.{extension}')
+    await ctx.send(f"> reloaded {extension}")
 
 
 for filename in os.listdir('./cogs'):

@@ -12,7 +12,7 @@ class Fun(commands.Cog):
         """roll the dice, default=6"""
         try:
             await ctx.send(
-                f"{ctx.message.author.mention} rolled a {random.randrange(int(integer))+1}."
+                f"> {ctx.message.author.mention} rolled a {random.randrange(int(integer))+1}."
             )
         except:
             await ctx.send("Please enter an integer")
@@ -20,9 +20,9 @@ class Fun(commands.Cog):
     @commands.command(aliases=['yn', 'yesno'])
     async def yesorno(self, ctx, *, question):
         """yes or no"""
-        responses = ['yes', 'no']
+        responses = ['Yes', 'No']
         await ctx.send(
-            f"Question: {question}\nAnswer: {random.choice(responses)}")
+            f"```Question: {question}\nAnswer: {random.choice(responses)}```")
 
     @commands.command(aliases=['pfp'])
     async def profilepicture(self, ctx):

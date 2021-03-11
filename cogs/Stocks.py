@@ -13,7 +13,7 @@ class Stocks(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases=['ticker', 'st', 'stocks'])
+    @commands.command(aliases=['ticker', 'st', 'stocks', 'stonk', 'stonks'])
     async def stock(self, ctx, *, ticker):
         """return stock info (WIP)"""
 
