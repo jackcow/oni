@@ -15,7 +15,7 @@ class Stocks(commands.Cog):
 
     @commands.command(aliases=['ticker', 'st', 'stocks', 'stonk', 'stonks'])
     async def stock(self, ctx, *, ticker):
-        """return stock info (WIP)"""
+        """return stock info"""
 
         colors = [
             0x008b00,  #green
