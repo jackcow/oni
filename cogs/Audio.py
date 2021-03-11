@@ -7,6 +7,7 @@ from discord.utils import get
 ytdl_format_options = {
     'format': 'bestaudio/best',
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+    'audioformat': 'mp3',
     'quiet': True,
     'no_warnings': True,
     'default_search': 'auto',
@@ -69,8 +70,8 @@ class Audio(commands.Cog):
         await voice.disconnect()
         # print(f"The bot has left {channel}")
 
-    @commands.command(aliases=["play", "yt"])
-    async def stream(self, ctx, *, url):
+    @commands.command(aliases=["stream", "yt"])
+    async def play(self, ctx, *, url):
         """stream song from youtube"""
         await self.join(ctx)
         async with ctx.typing():
