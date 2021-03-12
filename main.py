@@ -72,11 +72,23 @@ async def on_ready():
     client.loop.create_task(status_task())
 
 
-@client.command()
+@client.command(aliases=['rl'])
 async def reload(ctx, extension):
     """reload module"""
     client.reload_extension(f'cogs.{extension}')
     await ctx.send(f"> reloaded {extension}")
+
+
+@client.command(hidden=True)
+async def load(ctx, extension):
+    """load module"""
+    client.load_extension(f'cogs.{extension}')
+
+
+@client.command(hidden=True)
+async def unload(ctx, extension):
+    """unload module"""
+    client.unload_extension(f'cogs.{extension}')
 
 
 for filename in os.listdir('./cogs'):
