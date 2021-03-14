@@ -5,6 +5,14 @@ from datetime import datetime
 import yfinance as yf
 
 def inInfo(item,info,alt='None'):
+    """
+        Checks if item is in given list.
+        return item if true, else return alt
+        Args:
+            item: the item to be compared
+            info: the list to be checked
+            alt: alternative output
+    """
     if item in info:
         return info[item]
     return alt if alt=='None' else info[alt]
@@ -19,8 +27,8 @@ class Stocks(commands.Cog):
 
         colors = [
             0x008b00,  #green
-            0x8b0000
-        ]  #red
+            0x8b0000,  #red
+        ]  
 
         for t in ticker.split():
 
@@ -32,15 +40,14 @@ class Stocks(commands.Cog):
             openPrice = stock.info['open']
 
             form = '{0:.2f}' if lastPrice > 5 else '{0:.4f}'
-
             color = colors[0] if lastPrice > openPrice else colors[1]
+            dtnow = str(datetime.now(pytz.timezone('America/New_York')).strftime(
+                    "%Y-%m-%d %H:%M:%S EST"))
 
             embed = discord.Embed(
-                title=name + " (" + stock.info['symbol'] +
-                ")",
-                url="https://finance.yahoo.com/quote/" + stock.info['symbol'],
-                description="Sector: " + sector +
-                "\nIndustry: "+industry,
+                title=f"{name} ({stock.info['symbol']})" ,
+                url=f"https://finance.yahoo.com/quote/{stock.info['symbol']}",
+                description=f"Sector: {sector}\nIndustry: {industry}",
                 color=color)
 
             embed.add_field(name="Last Price",
@@ -63,9 +70,7 @@ class Stocks(commands.Cog):
                             value=form.format(stock.info['fiftyTwoWeekLow']),
                             inline=True)
 
-            embed.set_footer(text="Currency in "+stock.info['currency']+" | "+str(
-                datetime.now(pytz.timezone('America/New_York')).strftime(
-                    "%Y-%m-%d %H:%M:%S EST")))
+            embed.set_footer(text=f"Currency in {stock.info['currency']} | {dtnow}")
             await ctx.send(embed=embed)
 
 
