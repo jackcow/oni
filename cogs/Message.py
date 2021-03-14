@@ -10,8 +10,11 @@ class Message(commands.Cog):
     async def on_message(self, message):
 
         if message.content.startswith('oni.prefix'):
-            await message.channel.send("```The prefix for this server is \'" +
-                                       db[message.guild.id] + "\'```")
+            try:
+                await message.channel.send(f"> ``The prefix for this server is \'{db[message.guild.id]}\'``")
+            except:
+                await message.channel.send("> ``The prefix for this server is \'.\'``")
+
 
 
 def setup(client):

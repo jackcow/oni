@@ -58,7 +58,7 @@ class Audio(commands.Cog):
 
     @commands.command()
     async def join(self, ctx):
-        """join channel"""
+        """``join`` joins user channel"""
         if not ctx.voice_client:
             channel = ctx.message.author.voice.channel
             await channel.connect()
@@ -66,7 +66,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["stop"])
     async def leave(self, ctx):
-        """leave channel"""
+        """``leave`` leaves user channel"""
         # channel = ctx.message.author.voice.channel
         voice = get(self.client.voice_clients, guild=ctx.guild)
         # await self.client.change_presence(activity=discord.Activity(type=0, name=f"ready"))
@@ -75,7 +75,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["stream", "yt"])
     async def play(self, ctx, *, url):
-        """stream song from youtube"""
+        """``play [url]`` plays youtube song from url"""
         await self.join(ctx)
         async with ctx.typing():
             voice = await YTDLSource.from_url(url,
@@ -90,7 +90,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["pau"])
     async def pause(self, ctx):
-        """pause audio"""
+        """``pause`` pauses audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_playing():
@@ -101,7 +101,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["continue",'res'])
     async def resume(self, ctx):
-        """resume audio"""
+        """``resume`` resumes audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_paused():
@@ -112,7 +112,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["vol"])
     async def volume(self, ctx):
-        """sends volume instructions"""
+        """``volume`` right click me"""
         await ctx.send("> right click me to change volume.")
 
 

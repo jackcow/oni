@@ -16,11 +16,9 @@ execution engine
 
 def get_prefix(client, message):
     try:
-        db[message.guild.id]
+        return db[message.guild.id]
     except:
-        db[message.guild.id] = '.'
-
-    return db[message.guild.id]
+        return '.'
 
 
 def get_num_members():
@@ -31,13 +29,17 @@ def get_num_members():
     return total
 
 
-intents = discord.Intents.all()
-client = commands.Bot(command_prefix=get_prefix, intents=intents)
+intents = discord.Intents.default()
+client = commands.AutoShardedBot(command_prefix=get_prefix,
+                                 intents=intents,
+                                 help_command=None,
+                                #  case_insensitive=True,
+                      )
 
 
-@client.event
-async def on_guild_join(guild):
-    db[guild.id] = '.'
+# @client.event
+# async def on_guild_join(guild):
+#     db[guild.id] = '.'
 
 
 @client.event
@@ -45,10 +47,14 @@ async def on_guild_remove(guild):
     del db[guild.id]
 
 
-@client.command()
+@client.command(aliases=['prefix'])
 async def changeprefix(ctx, prefix):
-    """Changes Oni's prefix for server"""
-    db[ctx.guild.id] = prefix
+    """``prefix [cog name]`` changes server's prefix"""
+    if prefix == '.':
+        del db[ctx.guild.id]
+    else:
+        db[ctx.guild.id] = prefix
+    await ctx.send(f"> `server prefix was changed to: {prefix} `")
 
 
 @client.event
@@ -59,7 +65,7 @@ async def on_command_error(ctx, error):
 async def status_task():
     while True:
         await client.change_presence(activity=discord.Activity(
-            type=0, name=f"in {len(db.keys())} Servers"))
+            type=0, name=f"in {len(client.guilds)} Servers"))
         await sleep(30)
         await client.change_presence(activity=discord.Activity(
             type=0, name=f"with {len(set(client.get_all_members()))} Users"))
@@ -70,25 +76,6 @@ async def status_task():
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     client.loop.create_task(status_task())
-
-
-@client.command(aliases=['rl'])
-async def reload(ctx, extension):
-    """reload module"""
-    client.reload_extension(f'cogs.{extension}')
-    await ctx.send(f"> reloaded {extension}")
-
-
-@client.command(hidden=True)
-async def load(ctx, extension):
-    """load module"""
-    client.load_extension(f'cogs.{extension}')
-
-
-@client.command(hidden=True)
-async def unload(ctx, extension):
-    """unload module"""
-    client.unload_extension(f'cogs.{extension}')
 
 
 for filename in os.listdir('./cogs'):
