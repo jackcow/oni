@@ -11,9 +11,9 @@ class Message(commands.Cog):
 
         if message.content.startswith('oni.prefix'):
             try:
-                await message.channel.send(f"> ``The prefix for this server is \'{db[message.guild.id]}\'``")
+                await message.channel.send(f"> The prefix for this server is `\'{db[message.guild.id]}\'`")
             except:
-                await message.channel.send("> ``The prefix for this server is \'.\'``")
+                await message.channel.send("> The prefix for this server is `\'.\'`")
 
 
 

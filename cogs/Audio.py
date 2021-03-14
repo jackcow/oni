@@ -75,7 +75,7 @@ class Audio(commands.Cog):
 
     @commands.command(aliases=["stream", "yt"])
     async def play(self, ctx, *, url):
-        """``play [url]`` plays youtube song from url"""
+        """``play <url>`` plays youtube song from url"""
         await self.join(ctx)
         async with ctx.typing():
             voice = await YTDLSource.from_url(url,
@@ -85,7 +85,7 @@ class Audio(commands.Cog):
                                   after=lambda e: print('Player error: %s' % e)
                                   if e else None)
 
-        await ctx.send('> now playing: {}'.format(voice.title))
+        await ctx.send(f'> now playing: `{voice.title}`')
         # await self.client.change_presence(activity=discord.Activity(type=0, name="{}".format(voice.title)))
 
     @commands.command(aliases=["pau"])
@@ -113,7 +113,7 @@ class Audio(commands.Cog):
     @commands.command(aliases=["vol"])
     async def volume(self, ctx):
         """``volume`` right click me"""
-        await ctx.send("> right click me to change volume.")
+        await ctx.send("> `right click me to change volume.`")
 
 
 def setup(client):

@@ -9,34 +9,34 @@ class DevTools(commands.Cog):
     @commands.command(aliases=['rld','rl'])
     @commands.is_owner()
     async def reload(self, ctx, extension):
-        """``reload [cog name]`` reloads named extension"""
+        """``reload <extension>`` reloads named extension"""
         try:
             self.client.reload_extension(f"cogs.{extension}")
-            await ctx.send(f"`{extension} was reloaded`")
+            await ctx.send(f"> `{extension} was reloaded`")
         except Exception as e:
-            await ctx.send(f"`{extension} cannot be reloaded`")
+            await ctx.send(f"> `{extension} cannot be reloaded`")
             raise e
 
     @commands.command(aliases=['uld','unld','ul'])
     @commands.is_owner()
     async def unload(self, ctx, extension):
-        """``unload [cog name]`` unloads named extension"""
+        """``unload <extension>`` unloads named extension"""
         try:
             self.client.unload_extension(f"cogs.{extension}")
-            await ctx.send(f"`{extension} was unloaded`")
+            await ctx.send(f"> `{extension} was unloaded`")
         except Exception as e:
-            await ctx.send(f"`{extension} cannot be unloaded:`")
+            await ctx.send(f"> `{extension} cannot be unloaded:`")
             raise e
 
     @commands.command(aliases=['ld'])
     @commands.is_owner()
     async def load(self, ctx, extension):
-        """``load [cog name]`` loads named extension"""
+        """``load <extension>`` loads named extension"""
         try:
             self.client.load_extension(f"cogs.{extension}")
-            await ctx.send(f"`{extension} was loaded`")
+            await ctx.send(f"> `{extension} was loaded`")
         except Exception as e:
-            await ctx.send(f"`{extension} cannot be loaded:`")
+            await ctx.send(f"> `{extension} cannot be loaded:`")
             raise e
 
     @commands.command(aliases=['rlall','rldall'])
@@ -48,9 +48,9 @@ class DevTools(commands.Cog):
                 extension = filename[:-3]
                 try:
                     self.client.reload_extension(f'cogs.{extension}')
-                    await ctx.send(f"`{extension} was reloaded`")
+                    await ctx.send(f"> `{extension} was reloaded`")
                 except Exception as e:
-                    await ctx.send(f"`{extension} cannot be reloaded`")
+                    await ctx.send(f"> `{extension} cannot be reloaded`")
                     raise e
 
 

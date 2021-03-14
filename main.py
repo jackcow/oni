@@ -47,9 +47,9 @@ async def on_guild_remove(guild):
     del db[guild.id]
 
 
-@client.command(aliases=['prefix'])
+@client.command(aliases=['prefix', 'symbol'])
 async def changeprefix(ctx, prefix):
-    """``prefix [cog name]`` changes server's prefix"""
+    """``prefix [symbol]`` changes server's prefix"""
     if prefix == '.':
         del db[ctx.guild.id]
     else:
@@ -59,7 +59,7 @@ async def changeprefix(ctx, prefix):
 
 @client.event
 async def on_command_error(ctx, error):
-    await ctx.send(f"wtf bro?\n {error}")
+    await ctx.send(f"> wtf bro?\n {error}")
 
 
 async def status_task():
