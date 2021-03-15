@@ -46,7 +46,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
                    data=data)
 
 
-class Audio(commands.Cog):
+class Audio(commands.Cog, name="Audio"):
     def __init__(self, client):
         self.client = client
 

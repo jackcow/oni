@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-class DevTools(commands.Cog):
+class DevTools(commands.Cog, name="Developer Tools"):
     def __init__(self, client):
         self.client = client
 
@@ -25,7 +25,7 @@ class DevTools(commands.Cog):
             self.client.unload_extension(f"cogs.{extension}")
             await ctx.send(f"> `{extension} was unloaded`")
         except Exception as e:
-            await ctx.send(f"> `{extension} cannot be unloaded:`")
+            await ctx.send(f"> `{extension} cannot be unloaded`")
             raise e
 
     @commands.command(aliases=['ld'])
@@ -36,7 +36,7 @@ class DevTools(commands.Cog):
             self.client.load_extension(f"cogs.{extension}")
             await ctx.send(f"> `{extension} was loaded`")
         except Exception as e:
-            await ctx.send(f"> `{extension} cannot be loaded:`")
+            await ctx.send(f"> `{extension} cannot be loaded`")
             raise e
 
     @commands.command(aliases=['rlall','rldall'])

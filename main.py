@@ -29,11 +29,11 @@ def get_num_members():
     return total
 
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 client = commands.AutoShardedBot(command_prefix=get_prefix,
                                  intents=intents,
                                  help_command=None,
-                                #  case_insensitive=True,
+                                 case_insensitive=True,
                       )
 
 
@@ -59,7 +59,7 @@ async def changeprefix(ctx, prefix):
 
 @client.event
 async def on_command_error(ctx, error):
-    await ctx.send(f"> wtf bro?\n {error}")
+    await ctx.send(f"> wtf bro? `{error}`")
 
 
 async def status_task():

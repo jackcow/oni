@@ -11,7 +11,3 @@ Basic miscellaneous commands
 ### Management ``WIP``
 Tools to manage the server
 ### Stocks ``WIP``
-
-### 
-
-### 
