@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 from asyncio import sleep
 from replit import db
+import aiohttp
 from web_server import online
 
 '''TODO:
@@ -74,8 +75,10 @@ async def status_task():
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    client.aioSession = aiohttp.ClientSession()
     client.loop.create_task(status_task())
+    print('We have logged in as {0.user}'.format(client))
+    
 
 
 for filename in os.listdir('./cogs'):
