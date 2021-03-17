@@ -8,19 +8,19 @@ class Help(commands.Cog):
                          'Developer Tools', 'Fun',
                          #'Help', #'Images',
                          'Management', 'Message',
-                         'Stock',
+                         'Stock', 'Code',
                          ]
 
     @commands.command(hidden=True)
-    async def help(self, ctx):
+    async def help(self, ctx, extension):
         embed = discord.Embed(
-                title="Extensions")
-        for cogName in self.listCogs:
-            cog = self.client.get_cog(cogName)
-            commands = cog.get_commands()
-            for c in commands:
-                embed.add_field(name=c.name,
-                                value=c.short_doc)
+                title=extension)
+        cog = self.client.get_cog(extension)
+        commands = cog.get_commands()
+            
+        for c in commands:
+            embed.add_field(name=c.name,
+                            value=c.short_doc)
         await ctx.send(embed=embed)
 
         

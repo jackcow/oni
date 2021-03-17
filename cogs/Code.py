@@ -17,11 +17,9 @@ class Code(commands.Cog):
                   "source": content}
         ) as response:
             r = await response.json()
-        if "message" in r:
-            await ctx.send("Execution Failed")
-        else:
-            output = "Ok And? (No Output)" if not r["output"] else r["output"]
-            await ctx.send(f"```{output}```")
+
+        output = "Ok And? (No Output)" if not r["output"] else r["output"]
+        await ctx.send(f"```{output}```")
 
     @commands.command(aliases=["py", "py3"])
     # @commands.cooldown(1, 10, commands.BucketType.server)
@@ -36,6 +34,20 @@ class Code(commands.Cog):
         """`java [code]` run java code"""
         content = content.replace("```", "")
         await self.run(ctx, "java", content)
+
+    @commands.command()
+    # @commands.cooldown(1, 10, commands.BucketType.server)
+    async def c(self, ctx, *, content: commands.clean_content):
+        """`c [code]` run c code"""
+        content = content.replace("```", "")
+        await self.run(ctx, "c", content)
+
+    @commands.command(aliases=["c++"])
+    # @commands.cooldown(1, 10, commands.BucketType.server)
+    async def cpp(self, ctx, *, content: commands.clean_content):
+        """`cpp [code]` run cpp code"""
+        content = content.replace("```", "")
+        await self.run(ctx, "cpp", content)
 
 def setup(client):
     client.add_cog(Code(client))
