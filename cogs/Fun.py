@@ -16,7 +16,7 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['dice'])
     async def roll(self, ctx, *, integer=6):
-        """``roll <int>`` rolls random value starting from 1 to [int]"""
+        """`roll <int>` rolls random value starting from 1 to [int]"""
         try:
             await ctx.send(
                 f"> {ctx.message.author.mention} rolled a `{random.randrange(int(integer))+1}`."
@@ -26,7 +26,7 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['8b', '8ball'])
     async def eightball(self, ctx, *, question):
-        """``8ball [question]`` gives an answer to a question"""
+        """`8ball [question]` gives an answer to a question"""
         
         
         await ctx.send(
@@ -34,20 +34,20 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['coin'])
     async def flip(self, ctx):
-        """``flip`` flips a coin"""
+        """`flip` flips a coin"""
         possible_responses = ["heads", "tails"]
         await ctx.send(f"> {ctx.author.mention} flipped `{random.choice(possible_responses)}`")
 
     @commands.command(aliases=['pfp'])
     async def profilepicture(self, ctx):
-        """``pfp [mentions]`` sends mentioned profile picture"""
+        """`pfp [mentions]` sends mentioned profile picture"""
         for member in ctx.message.mentions:
             await ctx.send(embed=discord.Embed().set_image(
                 url=member.avatar_url))
 
     @commands.command(aliases=['choice'])
     async def choose(self, ctx, *, content: commands.clean_content):
-        """``choose [option]|[option]|[option]`` Chooses between multiple choices."""
+        """`choose [option]|[option]|[option]` Chooses between multiple choices."""
         content = content.split("|")
         await ctx.send(f"> Selected: `{random.choice(content)}`")
 

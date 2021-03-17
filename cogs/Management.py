@@ -9,7 +9,7 @@ class Management(commands.Cog):
     @commands.command(aliases=['clr', 'cl'])
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount=5):
-        """``clear <int>`` clears [int] messages"""
+        """`clear <int>` clears [int] messages"""
         try:
             await ctx.channel.purge(limit=amount+1)
         # print(f"cleared {amount} messages")
@@ -19,21 +19,21 @@ class Management(commands.Cog):
     @commands.command()
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member, *, reason=None):
-        """``kick <member> [reason]`` kicks mentioned member"""
+        """`kick <member> [reason]` kicks mentioned member"""
         await member.kick(reason=reason)
         await ctx.send(f"> {member.mention} was kicked for `{reason}`.")
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
-        """``ban <member> [reason]`` kicks mentioned member"""
+        """`ban <member> [reason]` kicks mentioned member"""
         await member.ban(reason=reason)
         await ctx.send(f"> {member.mention} was banned for `{reason}`.")
 
     @commands.command(aliases=["pardon"])
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, member):
-        """``unban <user#tag>`` unbans usertag member"""
+        """`unban <user#tag>` unbans usertag member"""
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split("#")
 
@@ -48,7 +48,7 @@ class Management(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        """``ping`` checks Oni ping"""
+        """`ping` checks Oni ping"""
         await ctx.send(f"> Oni Ping: {round(self.client.latency * 1000)}ms")
 
 

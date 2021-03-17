@@ -58,7 +58,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command()
     async def join(self, ctx):
-        """``join`` joins user channel"""
+        """`join` joins user channel"""
         if not ctx.voice_client:
             channel = ctx.message.author.voice.channel
             await channel.connect()
@@ -66,7 +66,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command(aliases=["stop"])
     async def leave(self, ctx):
-        """``leave`` leaves user channel"""
+        """`leave` leaves user channel"""
         # channel = ctx.message.author.voice.channel
         voice = get(self.client.voice_clients, guild=ctx.guild)
         # await self.client.change_presence(activity=discord.Activity(type=0, name=f"ready"))
@@ -75,7 +75,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command(aliases=["stream", "yt"])
     async def play(self, ctx, *, url):
-        """``play <url>`` plays youtube song from url"""
+        """`play <url>` plays youtube song from url"""
         await self.join(ctx)
         async with ctx.typing():
             voice = await YTDLSource.from_url(url,
@@ -90,7 +90,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command(aliases=["pau"])
     async def pause(self, ctx):
-        """``pause`` pauses audio"""
+        """`pause` pauses audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_playing():
@@ -101,7 +101,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command(aliases=["continue",'res'])
     async def resume(self, ctx):
-        """``resume`` resumes audio"""
+        """`resume` resumes audio"""
         voice = get(self.client.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_paused():
@@ -112,7 +112,7 @@ class Audio(commands.Cog, name="Audio"):
 
     @commands.command(aliases=["vol"])
     async def volume(self, ctx):
-        """``volume`` right click me"""
+        """`volume` right click me"""
         await ctx.send("> `right click me to change volume.`")
 
 

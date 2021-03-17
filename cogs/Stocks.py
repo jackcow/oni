@@ -23,7 +23,7 @@ class Stocks(commands.Cog):
 
     @commands.command(aliases=['ticker', 'st', 'stocks', 'stonk', 'stonks'])
     async def stock(self, ctx, *, ticker):
-        """``stock [tickers]`` lists stock tickers seperated by spaces"""
+        """`stock [tickers]` lists stock tickers seperated by spaces"""
 
         colors = [
             0x008b00,  #green
