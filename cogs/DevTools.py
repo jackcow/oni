@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-class DevTools(commands.Cog, name="Developer Tools"):
+class DevTools(commands.Cog, name="Developer Tools", description="Owner Tools"):
     def __init__(self, client):
         self.client = client
 

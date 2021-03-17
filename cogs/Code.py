@@ -24,7 +24,7 @@ class Code(commands.Cog):
     @commands.command(aliases=["py", "py3"])
     # @commands.cooldown(1, 10, commands.BucketType.server)
     async def python3(self, ctx, *, content: commands.clean_content):
-        """`python3 [code]` run python3 code"""
+        """`py3 [code]` run python3 code"""
         content = content.replace("```", "")
         await self.run(ctx, "python3", content)
 
@@ -33,6 +33,13 @@ class Code(commands.Cog):
     async def java(self, ctx, *, content: commands.clean_content):
         """`java [code]` run java code"""
         content = content.replace("```", "")
+        await self.run(ctx, "java", content)
+
+    @commands.command(aliases=["jf"])
+    # @commands.cooldown(1, 10, commands.BucketType.server)
+    async def javaf(self, ctx, *, content: commands.clean_content):
+        """`javaf [code]` run java code, automatically add class and main"""
+        content = "public class X{public static void main(String[] args){"+content.replace("```", "")+"}}"
         await self.run(ctx, "java", content)
 
     @commands.command()
