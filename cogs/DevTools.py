@@ -2,14 +2,14 @@ import discord
 from discord.ext import commands
 import os
 
-class DevTools(commands.Cog, name="Developer Tools", description="Owner Tools"):
+class Dev(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     @commands.command(aliases=['rld','rl'])
     @commands.is_owner()
     async def reload(self, ctx, extension):
-        """`reload <extension>` reloads named extension"""
+        """`reload <extension>` reloads a loaded extension"""
         try:
             self.client.reload_extension(f"cogs.{extension}")
             await ctx.send(f"> `{extension} was reloaded`")
@@ -42,7 +42,7 @@ class DevTools(commands.Cog, name="Developer Tools", description="Owner Tools"):
     @commands.command(aliases=['rlall','rldall'])
     @commands.is_owner()
     async def reloadall(self, ctx):
-        """`reloadall` reloads all"""
+        """`reloadall` reloads all loaded extensions"""
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py'):
                 extension = filename[:-3]
@@ -55,4 +55,4 @@ class DevTools(commands.Cog, name="Developer Tools", description="Owner Tools"):
 
 
 def setup(client):
-    client.add_cog(DevTools(client))
+    client.add_cog(Dev(client))

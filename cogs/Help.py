@@ -4,21 +4,24 @@ import discord
 class Help(commands.Cog):
     def __init__(self, client):
         self.client = client
-        self.listCogs = ['Audio', #'Code',
-                         'Developer Tools', 'Fun',
-                         #'Help', #'Images',
+        self.listCogs = ['Audio', 'Code',
+                         'Dev', 'Fun',
+                         'Help', #'Images',
                          'Management', 'Message',
-                         'Stock', 'Code',
+                         'Stock',
                          ]
 
     @commands.command(hidden=True)
     async def help(self, ctx, extension=""):
+        """`help <extension>` display commands in extension"""
+        extension = extension.capitalize()
+
         if not extension:
-            embed = discord.Embed(title="Extensions")
+            names = ""
             for name in self.listCogs:
-                embed.add_field(name=name,
-                                value='\u200b',
-                                inline=False)
+                names += name+"\n"
+            embed = discord.Embed(title="Extensions", 
+                                  description=names)
 
         else:
             embed = discord.Embed(title=extension)
