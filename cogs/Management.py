@@ -49,7 +49,7 @@ class Management(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
         """`ping` checks Oni ping"""
-        await ctx.send(f"> Oni Ping: {round(self.client.latency * 1000)}ms")
+        await ctx.send(f"> Oni Ping: `{round(self.client.latency * 1000)}ms`")
 
 
 def setup(client):

@@ -14,8 +14,8 @@ class Code(commands.Cog):
         ) as response:
             r = await response.json()
 
-        output = "Ok And? (No Output)" if not r["output"] else r["output"]
-        await ctx.send(f"```{output}```")
+        output = " " if not r["output"] else r["output"]
+        await ctx.send(f"```{output}```", delete_after=60)
 
 
     @commands.command(aliases=["py", "py3"])
