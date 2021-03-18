@@ -22,6 +22,11 @@ ytdl_options = {
     'format': 'bestaudio/best',
     'extractaudio': True,
     'restrictfilenames': True,
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
     'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
     'audioformat': 'mp3',
     'nocheckcertificate': True,
