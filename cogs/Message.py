@@ -14,6 +14,9 @@ class Message(commands.Cog):
                 await message.channel.send(f"> The prefix for this server is `\'{db[message.guild.id]}\'`")
             except:
                 await message.channel.send("> The prefix for this server is `\'.\'`")
+        
+        if "kys" in message.content:
+           await message.channel.send('> `HAHA YOU`')
 
 
 

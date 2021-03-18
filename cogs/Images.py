@@ -5,6 +5,7 @@ import discord
 from io import BytesIO
 from PIL import Image
 
+
 class Images(commands.Cog):
     def __init__(self, client):
         self.client = client

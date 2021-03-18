@@ -60,7 +60,7 @@ async def changeprefix(ctx, prefix):
 
 @client.event
 async def on_command_error(ctx, error):
-    await ctx.send(f"> wtf bro? `{error}`")
+    print(error)
 
 
 async def status_task():
