@@ -12,7 +12,7 @@ class Dev(commands.Cog):
     async def reload(self, ctx, extension):
         """`reload <extension>` reloads a loaded extension"""
         try:
-            self.client.reload_extension(f"cogs.{extension}")
+            self.client.reload_extension(f"cogs.{extension.capitalize()}")
             await ctx.send(f"> `{extension} was reloaded`")
         except Exception as e:
             await ctx.send(f"> `{extension} cannot be reloaded`")
@@ -23,7 +23,7 @@ class Dev(commands.Cog):
     async def unload(self, ctx, extension):
         """`unload <extension>` unloads named extension"""
         try:
-            self.client.unload_extension(f"cogs.{extension}")
+            self.client.unload_extension(f"cogs.{extension.capitalize()}")
             await ctx.send(f"> `{extension} was unloaded`")
         except Exception as e:
             await ctx.send(f"> `{extension} cannot be unloaded`")
@@ -34,7 +34,7 @@ class Dev(commands.Cog):
     async def load(self, ctx, extension):
         """`load <extension>` loads named extension"""
         try:
-            self.client.load_extension(f"cogs.{extension}")
+            self.client.load_extension(f"cogs.{extension.capitalize()}")
             await ctx.send(f"> `{extension} was loaded`")
         except Exception as e:
             await ctx.send(f"> `{extension} cannot be loaded`")
@@ -48,7 +48,7 @@ class Dev(commands.Cog):
             if filename.endswith('.py'):
                 extension = filename[:-3]
                 try:
-                    self.client.reload_extension(f'cogs.{extension}')
+                    self.client.reload_extension(f'cogs.{extension.capitalize()}')
                     await ctx.send(f"> `{extension} was reloaded`")
                 except Exception as e:
                     await ctx.send(f"> `{extension} cannot be reloaded`")

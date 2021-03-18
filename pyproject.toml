@@ -13,7 +13,7 @@ youtube-dl = "^2021.3.3"
 tasks = "^2.5.1"
 yfinance = "^0.1.55"
 PyNaCl = "^1.4.0"
-deeppyer = "^1.0.1"
+Pillow = "^8.1.2"
 
 [tool.poetry.dev-dependencies]
 
