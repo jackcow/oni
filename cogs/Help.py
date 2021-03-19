@@ -7,7 +7,7 @@ class Help(commands.Cog):
         self.client = client
         self.listCogs = ['Audio', 'Code',
                          'Dev', 'Fun',
-                         'Help', #'Images',
+                         'Help', 'Images',
                          'Management', 'Message',
                          'Stocks',
                          ]
