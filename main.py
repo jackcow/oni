@@ -6,14 +6,6 @@ from replit import db
 import aiohttp
 from web_server import online
 
-'''TODO:
-custom error messages
-image manipulation
-social media posts
-math engine
-execution engine
-'''
-
 
 def get_prefix(client, message):
     try:
