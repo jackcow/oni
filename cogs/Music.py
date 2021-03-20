@@ -51,9 +51,6 @@ class YTDLSource(discord.PCMVolumeTransformer):
         self.title = data.get('title')
         self.web_url = data.get('webpage_url')
 
-        # YTDL info dicts (data) have other useful information you might want
-        # https://github.com/rg3/youtube-dl/blob/master/README.md
-
     def __getitem__(self, item: str):
         """Allows us to access attributes similar to a dict.
         This is only useful when you are NOT downloading.
@@ -130,8 +127,8 @@ class MusicPlayer:
                 return
 
             if not isinstance(source, YTDLSource):
-                # Source was probably a stream (not downloaded)
-                # So we should regather to prevent stream expiration
+                # Source was probably not downloaded
+                # regather to prevent stream expiration
                 try:
                     source = await YTDLSource.regather_stream(source, loop=self.bot.loop)
                 except Exception as e:
@@ -146,12 +143,12 @@ class MusicPlayer:
                                                f'{source.requester.mention}')
             await self.next.wait()
 
-            # cleanup that ffmpeg
+            # cleanup ffmpeg
             source.cleanup()
             self.current = None
 
             try:
-                # We are no longer playing this song...
+                # We are no longer playing this song
                 await self.np.delete()
             except discord.HTTPException:
                 pass
