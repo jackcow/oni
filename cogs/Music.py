@@ -75,7 +75,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
         else:
             return {'webpage_url': data['webpage_url'], 'requester': ctx.author, 'title': data['title']}
 
-        return cls(discord.FFmpegPCMAudio(source), data=data, requester=ctx.author)
+        return cls(discord.FFmpegPCMAudio(source, **cls.ffmpeg_options), data=data, requester=ctx.author)
 
     @classmethod
     async def regather_stream(cls, data, *, loop):
