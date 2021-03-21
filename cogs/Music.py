@@ -244,24 +244,7 @@ class Music(commands.Cog):
 
         await ctx.send(f'Connected to: `{channel}`', delete_after=20)
 
-    @commands.command()
-    async def stream(self, ctx, *, search: str):
-        """`stream [url/search]` request a song and add it to the queue
-        join voice channel if availible
-        YTDL to search and get song
-        """
-        vc = ctx.voice_client
-
-        if not vc:
-            await ctx.invoke(self.connect)
-
-        player = self.get_player(ctx)
-
-        source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=False)
-
-        await player.queue.put(source)
-
-    @commands.command()
+    @commands.command(aliases=['stream'])
     async def play(self, ctx, *, search: str):
         """`play [url/search]` request a song and add it to the queue
         join voice channel if availible
@@ -274,7 +257,7 @@ class Music(commands.Cog):
 
         player = self.get_player(ctx)
 
-        source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=True)
+        source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop, download=False)
 
         await player.queue.put(source)
 
