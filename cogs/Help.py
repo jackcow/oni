@@ -5,11 +5,11 @@ from discord.ext import commands
 class Help(commands.Cog):
     def __init__(self, client):
         self.client = client
-        self.listCogs = ['Audio', 'Code',
+        self.listCogs = ['Code',
                          'Dev', 'Fun',
                          'Help', 'Images',
                          'Management', 'Message',
-                         'Stocks',
+                         'Music', 'Stocks',
                          ]
 
     @commands.command(hidden=True)

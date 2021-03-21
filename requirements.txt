@@ -1,0 +1,10 @@
+discord.py[voice]
+PyNaCl
+youtube-dl
+tasks
+asyncio
+Pillow
+yfinance
+pytz
+requests
+flask
