@@ -1,12 +1,10 @@
 import os
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 from asyncio import sleep
 import sqlite3
 import aiohttp
 
-load_dotenv()
 
 def get_prefix(client, message):
     db = sqlite3.connect("main.sqlite")

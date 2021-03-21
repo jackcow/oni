@@ -7,4 +7,3 @@ Pillow
 yfinance
 pytz
 requests
-discord-dotenv
