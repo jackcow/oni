@@ -87,7 +87,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
         to_run = partial(ytdl.extract_info, url=data['webpage_url'], download=False)
         data = await loop.run_in_executor(None, to_run)
 
-        return cls(discord.FFmpegPCMAudio(data['url']), data=data, requester=requester)
+        return cls(discord.FFmpegPCMAudio(data['url'], **cls.ffmpeg_options), data=data, requester=requester)
 
 
 class MusicPlayer:
@@ -246,7 +246,7 @@ class Music(commands.Cog):
 
     @commands.command(aliases=['stream'])
     async def play(self, ctx, *, search: str):
-        """`play [url/search]` request a song and add it to the queue
+        """`play [url/search]` request a song and add it to the queue, sometimes read errors in playback bruh
         join voice channel if availible
         YTDL to search and get song
         """
