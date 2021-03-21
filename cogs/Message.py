@@ -1,6 +1,5 @@
 from discord.ext import commands
-
-from replit import db
+import sqlite3
 
 
 class Message(commands.Cog):
@@ -11,10 +10,12 @@ class Message(commands.Cog):
     async def on_message(self, message):
 
         if message.content.startswith('oni.prefix'):
-            try:
-                await message.channel.send(f"> The prefix for this server is `\'{db[message.guild.id]}\'`")
-            except:
-                await message.channel.send("> The prefix for this server is `\'.\'`")
+            db = sqlite3.connect('main.sqlite')
+            cursor = db.cursor()
+            prefix = cursor.execute(f"SELECT prefix FROM main WHERE guild_id = {message.guild.id}").fetchone()
+            if prefix:
+                return await message.channel.send(f"> The prefix for this server is `\'{prefix}\'`")
+            return await message.channel.send("> The prefix for this server is `\'.\'`")
         
         if "kys" in message.content:
            await message.channel.send('> `HAHA YOU`')

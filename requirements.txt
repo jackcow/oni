@@ -6,3 +6,4 @@ asyncio
 Pillow
 yfinance
 pytz
+requests
