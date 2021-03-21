@@ -4,10 +4,11 @@
 A discord bot written in python using the [discord.py](https://github.com/Rapptz/discord.py) API wrapper.
 
 ## Extensions ``"TODO LIST"``
-### Audio ``TESTING`` ``WIP``
+### Audio ``TESTING``
 Audio playback functionality
-### Fun ``WIP``
+### Fun ``REQUEST``
 Basic miscellaneous commands
-### Management ``WIP``
+### Management ``REQUEST``
 Tools to manage the server
-### Stocks ``WIP``
+### Stocks ``REQUEST``
+Show basic ticker information
