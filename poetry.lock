@@ -229,6 +229,14 @@ version = "8.1.2"
 
 [[package]]
 category = "main"
+description = "A pure python3 version of ICMP ping implementation using raw socket."
+name = "ping3"
+optional = false
+python-versions = ">=3"
+version = "2.7.0"
+
+[[package]]
+category = "main"
 description = "C parser in Python"
 name = "pycparser"
 optional = false
@@ -390,7 +398,7 @@ python-versions = "*"
 version = "2021.3.14"
 
 [metadata]
-content-hash = "b475eeeb81b0069e5785df89e31211d0b6c98521416359aee74c48375950c525"
+content-hash = "42688f3fce2af1a2a30dcada064f1d67bcc1467e23b176a07944f5c681df938b"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -733,6 +741,10 @@ pillow = [
     {file = "Pillow-8.1.2-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:6efac40344d8f668b6c4533ae02a48d52fd852ef0654cc6f19f6ac146399c733"},
     {file = "Pillow-8.1.2-pp37-pypy37_pp73-win32.whl", hash = "sha256:f36c3ff63d6fc509ce599a2f5b0d0732189eed653420e7294c039d342c6e204a"},
     {file = "Pillow-8.1.2.tar.gz", hash = "sha256:b07c660e014852d98a00a91adfbe25033898a9d90a8f39beb2437d22a203fc44"},
+]
+ping3 = [
+    {file = "ping3-2.7.0-py3-none-any.whl", hash = "sha256:1a564ec5fac325b622c0fdaf15da9f2623764bba0ae3244ec1ddb89e0de8c2f5"},
+    {file = "ping3-2.7.0.tar.gz", hash = "sha256:afb72038e18fd2b57651a3488a7cbb34b83f6bb6d3676ba37b249394c6dcb84b"},
 ]
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},

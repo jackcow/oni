@@ -2,16 +2,17 @@ import os
 import discord
 from discord.ext import commands
 from asyncio import sleep
-from replit import db
+import sqlite3
 import aiohttp
-from web_server import online
-
 
 def get_prefix(client, message):
-    try:
-        return db[message.guild.id]
-    except:
-        return '.'
+    db = sqlite3.connect("main.sqlite")
+    cursor = db.cursor()
+    prefix = cursor.execute(f"SELECT prefix FROM main WHERE guild_id = {message.guild.id}").fetchone()
+    cursor.close()
+    if prefix:
+        return prefix
+    return '.'
 
 
 def get_num_members():
@@ -37,16 +38,26 @@ client = commands.AutoShardedBot(command_prefix=get_prefix,
 
 @client.event
 async def on_guild_remove(guild):
-    del db[guild.id]
+    db = sqlite3.connect("main.sqlite")
+    cursor = db.cursor()
+    cursor.execute(f"DELETE FROM main WHERE guild_id = {guild.id}")
+    db.commit()
+    cursor.close()
 
 
 @client.command(aliases=['prefix', 'symbol'])
 async def changeprefix(ctx, prefix):
     """``prefix [symbol]`` changes server's prefix"""
+    db = sqlite3.connect("main.sqlite")
+    cursor = db.cursor()
     if prefix == '.':
-        del db[ctx.guild.id]
+        cursor.execute(f"DELETE FROM main WHERE guild_id = {ctx.guild.id}")
     else:
-        db[ctx.guild.id] = prefix
+        sql = (f"INSERT INTO main(guild_id, prefix) VALUES(?,?)")
+        val = (ctx.guild.id, prefix)
+        cursor.execute(sql, val)
+    db.commit()
+    cursor.close()
     await ctx.send(f"> `server prefix was changed to: {prefix} `")
 
 
@@ -72,11 +83,9 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     
 
-
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
 if __name__ == "__main__":
-    online()
-    client.run(os.getenv('TOKEN'))
+    client.run(os.environ.get('TOKEN'))
