@@ -38,7 +38,7 @@ class Stocks(commands.Cog):
             name = inInfo('longName', stock.info, 'shortName')
             sector = inInfo('sector', stock.info)
             industry = inInfo('industry', stock.info)
-            lastPrice = stock.history().tail(1)['currentPrice'].iloc[0]
+            lastPrice = stock.info['currentPrice']
             openPrice = stock.info['open']
 
             form = '{0:.2f}' if lastPrice > 5 else '{0:.4f}'
