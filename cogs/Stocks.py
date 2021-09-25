@@ -3,7 +3,7 @@ from discord.ext import commands
 
 import time
 import pytz
-import yfinance as yf
+import fix_yahoo_finance as yf
 
 
 def inInfo(item,info,alt='None'):
