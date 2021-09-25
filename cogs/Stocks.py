@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 
+import time
 import pytz
-from datetime import datetime
 import yfinance as yf
 
 
@@ -32,9 +32,9 @@ class Stocks(commands.Cog):
             0x8b0000,  #red
         ]  
 
-        for t in ticker.split():
+        for t in yf.Tickers(ticker):
 
-            stock = yf.Ticker(t)
+            stock = t
             name = inInfo('longName', stock.info, 'shortName')
             sector = stock.info['sector']
             industry = stock.info['industry']
@@ -43,8 +43,6 @@ class Stocks(commands.Cog):
 
             form = '{0:.2f}' if lastPrice > 5 else '{0:.4f}'
             color = colors[0] if lastPrice > openPrice else colors[1]
-            dtnow = str(datetime.now(pytz.timezone('America/New_York')).strftime(
-                    "%Y-%m-%d %H:%M:%S EST"))
 
             embed = discord.Embed(
                 title=f"{name} ({stock.info['symbol']})" ,
@@ -72,7 +70,7 @@ class Stocks(commands.Cog):
                             value=form.format(stock.info['fiftyTwoWeekLow']),
                             inline=True)
 
-            embed.set_footer(text=f"Currency in {stock.info['currency']} | {dtnow}")
+            embed.set_footer(text=f"Currency in {stock.info['currency']} | <t:{int(time.time())}:f>")
             await ctx.send(embed=embed)
 
     @stock.error
