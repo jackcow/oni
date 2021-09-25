@@ -79,8 +79,9 @@ class Stocks(commands.Cog):
         print(error)
 
     @commands.command(aliases=['t'])
-    async def time(self, ctx):
-        await ctx.send(f"> <t:{int(time.time())}:F>")
+    async def time(self, ctx, modifier="F"):
+        if modifier in "dDtTfFR":
+            await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
 
 
 def setup(client):
