@@ -36,16 +36,15 @@ class Stocks(commands.Cog):
 
             stock = yf.Ticker(t)
             name = inInfo('longName', stock.info, 'shortName')
-            sector = inInfo('sector', stock.info)
-            industry = inInfo('industry', stock.info)
+            sector = stock.info['sector']
+            industry = stock.info['industry']
             lastPrice = stock.info['currentPrice']
             openPrice = stock.info['open']
 
             form = '{0:.2f}' if lastPrice > 5 else '{0:.4f}'
             color = colors[0] if lastPrice > openPrice else colors[1]
-            # dtnow = str(datetime.now(pytz.timezone('America/New_York')).strftime(
-            #         "%Y-%m-%d %H:%M:%S EST"))
-            dtnow = 'test'
+            dtnow = str(datetime.now(pytz.timezone('America/New_York')).strftime(
+                    "%Y-%m-%d %H:%M:%S EST"))
 
             embed = discord.Embed(
                 title=f"{name} ({stock.info['symbol']})" ,
@@ -80,7 +79,6 @@ class Stocks(commands.Cog):
     async def stock_error(self, ctx, error):
         await ctx.send("> wtf bro? `Ticker Not Found`")
         print(error)
-
 
 
 def setup(client):
