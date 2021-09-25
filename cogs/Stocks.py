@@ -32,9 +32,9 @@ class Stocks(commands.Cog):
             0x8b0000,  #red
         ]  
 
-        for t in yf.Tickers(ticker):
+        for t in ticker.split():
 
-            stock = t
+            stock = yf.Ticker(t)
             name = inInfo('longName', stock.info, 'shortName')
             sector = stock.info['sector']
             industry = stock.info['industry']
@@ -77,6 +77,10 @@ class Stocks(commands.Cog):
     async def stock_error(self, ctx, error):
         await ctx.send("> wtf bro? `Ticker Not Found`")
         print(error)
+
+    @commands.command(aliases=['t'])
+    async def time(self, ctx):
+        await ctx.send(f"<t:{time.time()}:F>")
 
 
 def setup(client):
