@@ -77,12 +77,6 @@ class Stocks(commands.Cog):
         await ctx.send("> wtf bro? `Ticker Not Found`")
         print(error)
 
-    @commands.command(aliases=['t'])
-    async def time(self, ctx, modifier="F"):
-        if modifier in "dDtTfFR":
-            await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
-        else: await ctx.send(f"> modcheck")
-
 
 def setup(client):
     client.add_cog(Stocks(client))

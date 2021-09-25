@@ -46,6 +46,12 @@ class Management(commands.Cog):
                 await ctx.send(f"> unbanned {user.mention}")
                 return
 
+    @commands.command(aliases=['t'])
+    async def time(self, ctx, modifier="F"):
+        if modifier in "dDtTfFR":
+            await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
+        else: await ctx.send(f"> modcheck")
+
     @commands.command()
     async def ping(self, ctx):
         """`ping` checks Oni ping"""
