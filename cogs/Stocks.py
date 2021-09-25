@@ -27,8 +27,8 @@ class Stocks(commands.Cog):
         """`stock [tickers]` lists stock tickers seperated by spaces"""
 
         colors = [
-            0x008b00,  #green
-            0x8b0000,  #red
+            0x00873c,  #green
+            0xeb0f29,  #red
         ]  
 
         for t in ticker.split():
@@ -46,7 +46,7 @@ class Stocks(commands.Cog):
             embed = discord.Embed(
                 title=f"{name} ({stock.info['symbol']})" ,
                 url=f"https://finance.yahoo.com/quote/{stock.info['symbol']}",
-                description=f"Sector: {sector}\nIndustry: {industry}",
+                description=f"Sector: {sector}\nIndustry: {industry}\n<t:{int(time.time())}:f>",
                 color=color)
 
             embed.add_field(name="Last Price",
@@ -69,7 +69,7 @@ class Stocks(commands.Cog):
                             value=form.format(stock.info['fiftyTwoWeekLow']),
                             inline=True)
 
-            embed.set_footer(text=f"Currency in {stock.info['currency']} | <t:{int(time.time())}:f>")
+            embed.set_footer(text=f"Currency in {stock.info['currency']}")
             await ctx.send(embed=embed)
 
     @stock.error
