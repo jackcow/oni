@@ -38,7 +38,7 @@ class Stocks(commands.Cog):
             name = inInfo('longName', stock.info, 'shortName')
             sector = inInfo('sector', stock.info)
             industry = inInfo('industry', stock.info)
-            lastPrice = stock.history().tail(1)['Close'].iloc[0]
+            lastPrice = stock.history().tail(1)['currentPrice'].iloc[0]
             openPrice = stock.info['open']
 
             form = '{0:.2f}' if lastPrice > 5 else '{0:.4f}'
@@ -77,7 +77,7 @@ class Stocks(commands.Cog):
 
     @stock.error
     async def stock_error(self, ctx, error):
-        await ctx.send("> wtf bro? `Ticker Not Found`")
+        await ctx.send("There has been an error. If you think this is a mistake contact the master")
 
 
 
