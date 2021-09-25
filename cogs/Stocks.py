@@ -2,8 +2,7 @@ import discord
 from discord.ext import commands
 
 import time
-import pytz
-import fix_yahoo_finance as yf
+import yfinance as yf
 
 
 def inInfo(item,info,alt='None'):
@@ -82,6 +81,7 @@ class Stocks(commands.Cog):
     async def time(self, ctx, modifier="F"):
         if modifier in "dDtTfFR":
             await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
+        else: await ctx.send(f"> modcheck")
 
 
 def setup(client):

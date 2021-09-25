@@ -4,8 +4,6 @@ youtube-dl
 tasks
 asyncio
 Pillow
-yfinance
-pytz
+yfinance==0.1.63
 requests
-flask
 aiohttp
