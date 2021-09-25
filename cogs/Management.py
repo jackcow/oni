@@ -49,11 +49,27 @@ class Management(commands.Cog):
                 return
 
     @commands.command(aliases=['t'])
-    async def time(self, ctx, modifier="F", *, unix):
+    async def time(self, ctx, modifier="F", unix='None'):
         """`time [mod] [unix]` display the time depending on viewer's timezone"""
+        if unix.isnumeric():
+            unix = int(unix)
+            if (-8640000000000 <= unix <= 8640000000000): timestamp = unix
+        else: 
+            timestamp = int(time.time())
         if modifier in "dDtTfFR":
-            await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
+            await ctx.send(f"> <t:{timestamp}:{modifier}>")
+        elif modifier in "aA":
+            for chr in "dDtTfFR":
+                await ctx.send(f"> <t:{timestamp}:{chr}>")
         else: await ctx.send(f"> modcheck?")
+
+    @commands.command(aliases=['tmstmp'])
+    async def timestamp(self, ctx, sec=0, min=0, hr=0, d=0, yr=0):
+        """`timestamp [sec] [min] [hr] [d] [yr]` set"""
+
+        timestamp = int(time.time()) + sec + min*60 + hr*3600 + d*86400 + yr*31536000
+        await ctx.send(f"> {timestamp}\n <t:{timestamp}:R>")
+        
 
     @commands.command()
     async def ping(self, ctx):
