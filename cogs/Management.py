@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+import time
+
 
 class Management(commands.Cog):
     def __init__(self, client):
@@ -47,10 +49,11 @@ class Management(commands.Cog):
                 return
 
     @commands.command(aliases=['t'])
-    async def time(self, ctx, modifier="F"):
+    async def time(self, ctx, modifier="F", *, unix):
+        """`time [mod] [unix]` display the time depending on viewer's timezone"""
         if modifier in "dDtTfFR":
             await ctx.send(f"> <t:{int(time.time())}:{modifier}>")
-        else: await ctx.send(f"> modcheck")
+        else: await ctx.send(f"> modcheck?")
 
     @commands.command()
     async def ping(self, ctx):
