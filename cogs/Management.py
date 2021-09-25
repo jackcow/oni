@@ -68,7 +68,7 @@ class Management(commands.Cog):
         """`timestamp [sec] [min] [hr] [d] [yr]` set"""
 
         timestamp = int(time.time()) + sec + min*60 + hr*3600 + d*86400 + yr*31536000
-        await ctx.send(f"> {timestamp}\n <t:{timestamp}:R>")
+        await ctx.send(f"> UNIX Timestamp: {timestamp}\n> <t:{timestamp}:R>")
         
 
     @commands.command()
