@@ -46,31 +46,31 @@ class Stocks(commands.Cog):
             dtnow = str(datetime.now(pytz.timezone('America/New_York')).strftime(
                     "%Y-%m-%d %H:%M:%S EST"))
 
-            embed = discord.Embed(
-                title=f"{name} ({stock.info['symbol']})" ,
-                url=f"https://finance.yahoo.com/quote/{stock.info['symbol']}",
-                description=f"Sector: {sector}\nIndustry: {industry}",
-                color=color)
+            # embed = discord.Embed(
+            #     title=f"{name} ({stock.info['symbol']})" ,
+            #     url=f"https://finance.yahoo.com/quote/{stock.info['symbol']}",
+            #     description=f"Sector: {sector}\nIndustry: {industry}",
+            #     color=color)
 
-            embed.add_field(name="Last Price",
-                            value=form.format(lastPrice),
-                            inline=True)
-            embed.add_field(name="Day High",
-                            value=form.format(stock.info['dayHigh']),
-                            inline=True)
-            embed.add_field(name="52w High",
-                            value=form.format(stock.info['fiftyTwoWeekHigh']),
-                            inline=True)
+            # embed.add_field(name="Last Price",
+            #                 value=form.format(lastPrice),
+            #                 inline=True)
+            # embed.add_field(name="Day High",
+            #                 value=form.format(stock.info['dayHigh']),
+            #                 inline=True)
+            # embed.add_field(name="52w High",
+            #                 value=form.format(stock.info['fiftyTwoWeekHigh']),
+            #                 inline=True)
 
-            embed.add_field(name="Open",
-                            value=form.format(openPrice),
-                            inline=True)
-            embed.add_field(name="Day Low",
-                            value=form.format(stock.info['dayLow']),
-                            inline=True)
-            embed.add_field(name="52w Low",
-                            value=form.format(stock.info['fiftyTwoWeekLow']),
-                            inline=True)
+            # embed.add_field(name="Open",
+            #                 value=form.format(openPrice),
+            #                 inline=True)
+            # embed.add_field(name="Day Low",
+            #                 value=form.format(stock.info['dayLow']),
+            #                 inline=True)
+            # embed.add_field(name="52w Low",
+            #                 value=form.format(stock.info['fiftyTwoWeekLow']),
+            #                 inline=True)
 
             embed.set_footer(text=f"Currency in {stock.info['currency']} | {dtnow}")
             await ctx.send(embed=embed)
