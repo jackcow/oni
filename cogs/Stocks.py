@@ -80,7 +80,7 @@ class Stocks(commands.Cog):
 
     @commands.command(aliases=['t'])
     async def time(self, ctx):
-        await ctx.send(f"<t:{time.time()}:F>")
+        await ctx.send(f"> <t:{int(time.time())}:F>")
 
 
 def setup(client):
