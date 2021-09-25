@@ -77,7 +77,8 @@ class Stocks(commands.Cog):
 
     @stock.error
     async def stock_error(self, ctx, error):
-        await ctx.send("There has been an error. If you think this is a mistake contact the master")
+        await ctx.send("> wtf bro? `Ticker Not Found`")
+        print(error)
 
 
 
