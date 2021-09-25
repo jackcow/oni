@@ -75,10 +75,10 @@ class Stocks(commands.Cog):
             embed.set_footer(text=f"Currency in {stock.info['currency']} | {dtnow}")
             await ctx.send(embed=embed)
 
-    @stock.error
-    async def stock_error(self, ctx, error):
-        await ctx.send("> wtf bro? `Ticker Not Found`")
-        print(error)
+    # @stock.error
+    # async def stock_error(self, ctx, error):
+    #     await ctx.send("> wtf bro? `Ticker Not Found`")
+    #     print(error)
 
 
 
