@@ -65,7 +65,7 @@ class Management(commands.Cog):
 
     @commands.command(aliases=['tmstmp'])
     async def timestamp(self, ctx, sec=0, min=0, hr=0, d=0, yr=0):
-        """`timestamp [sec] [min] [hr] [d] [yr]` set"""
+        """`timestamp [sec] [min] [hr] [d] [yr]` get unix timestamp"""
 
         timestamp = int(time.time()) + sec + min*60 + hr*3600 + d*86400 + yr*31536000
         await ctx.send(f"> UNIX Timestamp: {timestamp}\n> <t:{timestamp}:R>")
