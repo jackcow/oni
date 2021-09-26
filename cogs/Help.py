@@ -9,7 +9,8 @@ class Help(commands.Cog):
                          'Dev', 'Fun',
                          'Help', 'Images',
                          'Management', 'Message',
-                         'Music', 'Stocks',
+                        #  'Music',
+                         'Stocks',
                          ]
 
     @commands.command(hidden=True)

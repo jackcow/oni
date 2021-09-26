@@ -36,7 +36,8 @@ ytdl_options = {
     'source_address': '0.0.0.0'
 }
 
-ffmpeg_options = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',    
+ffmpeg_options = {
+    # 'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',    
                   'options': '-vn'}
 
 ytdl = YoutubeDL(ytdl_options)
