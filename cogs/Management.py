@@ -4,6 +4,13 @@ from discord.ext import commands
 import time
 
 
+def extractnums(s):
+    result = ""
+    for c in s:
+        if c.isdigit():
+            result += c
+    return result
+
 class Management(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -64,10 +71,23 @@ class Management(commands.Cog):
         else: await ctx.send(f"> modcheck?")
 
     @commands.command(aliases=['tmstmp'])
-    async def timestamp(self, ctx, sec=0, min=0, hr=0, d=0, yr=0):
-        """`timestamp [sec] [min] [hr] [d] [yr]` get unix timestamp"""
+    async def timestamp(self, ctx, *, args):
+        """`timestamp [s|m|h|d|y]` get unix timestamp"""
 
-        timestamp = int(time.time()) + sec + min*60 + hr*3600 + d*86400 + yr*31536000
+        timestamp = int(time.time())
+
+        for e in args.split():
+            if 's' in e:
+                timestamp += int(extractnums(e))
+            elif 'm' in e:
+                timestamp += int(extractnums(e)) * 60
+            elif 'h' in e:
+                timestamp += int(extractnums(e)) * 3600
+            elif 'd' in e:
+                timestamp += int(extractnums(e)) * 86400
+            elif 'y' in e:
+                timestamp += int(extractnums(e)) * 31536000
+
         await ctx.send(f"> UNIX Timestamp: {timestamp}\n> <t:{timestamp}:R>")
         
 
