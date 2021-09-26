@@ -1,6 +1,6 @@
 discord.py[voice]
 PyNaCl
-youtube_dl
+youtube_dl==2021.6.6
 tasks
 asyncio
 Pillow

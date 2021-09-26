@@ -88,7 +88,7 @@ class Management(commands.Cog):
             elif 'y' in e:
                 timestamp += int(extractnums(e)) * 31536000
 
-        await ctx.send(f"> UNIX Timestamp: {timestamp}\n> <t:{timestamp}:R>")
+        await ctx.send(f"> UNIX Timestamp: {timestamp}\n> <t:{timestamp}:F>\n> <t:{timestamp}:R>")
         
 
     @commands.command()
