@@ -60,7 +60,7 @@ class Management(commands.Cog):
             await ctx.send(f"> <t:{timestamp}:{modifier}>")
         elif modifier in "aA":
             for chr in "dDtTfFR":
-                await ctx.send(f"> <t:{timestamp}:{chr}>")
+                await ctx.send(f"> {chr}: <t:{timestamp}:{chr}>")
         else: await ctx.send(f"> modcheck?")
 
     @commands.command(aliases=['tmstmp'])
