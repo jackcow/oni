@@ -342,10 +342,10 @@ class Music(commands.Cog):
 
         player = self.get_player(ctx)
         if player.queue.empty():
-            return await ctx.send('> `Queue empty`.')
+            return await ctx.send('> `Queue empty`')
 
-        # Grab up to 5 entries from the queue...
-        upcoming = list(itertools.islice(player.queue._queue, 0, 5))
+        # Grab up to 10 entries from the queue...
+        upcoming = list(itertools.islice(player.queue._queue, 0, 10))
 
         fmt = '\n'.join(f'{song["title"]}' for song in upcoming)
         # embed = discord.Embed(title='Queue', description=fmt)

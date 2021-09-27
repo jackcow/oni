@@ -113,7 +113,7 @@
             "ammoType":"Energy",
             "damage":"18/36/14",
             "RPM":"600",
-            "magSize":"Gauge",
+            "magSize":"20/22/24/26*",
             "reload":"1.15s/2.45s",
             "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784163020472370/ls.png"
         },
@@ -182,7 +182,7 @@
         "Eva8":{
             "displayName":"EVA-8 Auto",
             "ammoType":"Shotgun",
-            "damage":"63/99/63",
+            "damage":"63/79/63",
             "RPM":"126",
             "magSize":"8",
             "reload":"2.75s/3.0s",
@@ -209,7 +209,7 @@
         "Mozambique":{
             "displayName":"Mozambique Shotgun",
             "ammoType":"Shotgun",
-            "damage":"45/69/42",
+            "damage":"45/56/42",
             "RPM":"180",
             "magSize":"4",
             "reload":"2.1s/2.6s",
