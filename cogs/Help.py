@@ -9,7 +9,7 @@ class Help(commands.Cog):
                          'Dev', 'Fun',
                          'Help', 'Images',
                          'Management',
-                         'Music', 'NewApex',
+                         'Music',
                          #'Osu',
                          'Stocks', 
                          ]
