@@ -61,7 +61,7 @@
     {
         "Alternator":{
             "displayName":"Alternator SMG",
-            "ammoType":"Light",
+            "ammoType":"Unique",
             "damage":"16/24/13",
             "RPM":"600",
             "magSize":"19/22/25/27",
@@ -70,7 +70,7 @@
         },
         "Prowler":{
             "displayName":"Prowler Burst PDW",
-            "ammoType":"Unique",
+            "ammoType":"Heavy",
             "damage":"15/23/12",
             "RPM":"800",
             "magSize":"35",
@@ -119,7 +119,7 @@
         },
         "Spitfire":{
             "displayName":"M600 Spitfire",
-            "ammoType":"Heavy",
+            "ammoType":"Unique",
             "damage":"19/38/14",
             "RPM":"540",
             "magSize":"35/40/45/55",
@@ -168,7 +168,7 @@
         },
         "Tripletake":{
             "displayName":"Triple Take",
-            "ammoType":"Sniper",
+            "ammoType":"Unique",
             "damage":"69/138/63",
             "RPM":"78",
             "magSize":"6/7/8/9",
@@ -199,7 +199,7 @@
         },
         "Peacekeeper":{
             "displayName":"Peacekeeper",
-            "ammoType":"Unique",
+            "ammoType":"Shotgun",
             "damage":"110/143/88",
             "RPM":"58",
             "magSize":"5",
