@@ -128,7 +128,7 @@
         }
     },
 
-    "Sniper":
+    "Marksman":
     {
         "Chargerifle":{
             "displayName":"Charge Rifle",
@@ -170,10 +170,19 @@
             "displayName":"Triple Take",
             "ammoType":"Sniper",
             "damage":"69/138/63",
-            "RPM":"72",
+            "RPM":"78",
             "magSize":"6/7/8/9",
             "reload":"2.6s/3.4s",
             "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784170964484126/tt.png"
+        },
+        "Bocek":{
+            "displayName":"Bocek Compound Bow",
+            "ammoType":"Arrow",
+            "damage":"60/105/54",
+            "RPM":"180-107",
+            "magSize":"None",
+            "reload":"None",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/891894317843632178/bc.png"
         }
     },
 

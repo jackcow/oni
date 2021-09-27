@@ -56,6 +56,10 @@ class Apex(commands.Cog):
             "Sniper": [
                 0x7c80fb,
                 "https://static.wikia.nocookie.net/apexlegends_gamepedia_en/images/3/3e/Sniper_Ammo.svg/revision/latest/scale-to-width-down/256?cb=20200207225134"
+            ],
+            "Arrow": [
+                0xf3d674,
+                "https://static.wikia.nocookie.net/apexlegends_gamepedia_en/images/f/fe/Arrows.svg/revision/latest/scale-to-width-down/512?cb=20210430161624"
             ]
         }
 
