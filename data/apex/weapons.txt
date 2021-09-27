@@ -1,0 +1,250 @@
+{
+    "Rifle":
+    {
+        "3030":{
+            "displayName":"30-30 Repeater",
+            "ammoType":"Heavy",
+            "damage":"42/74/32 (+35%)",
+            "RPM":"140",
+            "magSize":"6/8/10/12",
+            "reload":"0.6s/shot",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784175321448448/3030.png"
+        },
+        "G7":{
+            "displayName":"G7 Scout",
+            "ammoType":"Light",
+            "damage":"34/60/26",
+            "RPM":"240",
+            "magSize":"10/15/18/20",
+            "reload":"2.4s/3.0s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784131294232626/g7.png"
+        },
+        "Havoc":{
+            "displayName":"HAVOC Rifle",
+            "ammoType":"Energy",
+            "damage":"18/36/14",
+            "RPM":"672",
+            "magSize":"24/28/32/36",
+            "reload":"3.2s/3.2s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784128861405184/havoc.png"
+        },
+        "Hemlok":{
+            "displayName":"Hemlok Burst AR",
+            "ammoType":"Heavy",
+            "damage":"20/35/15",
+            "RPM":"643",
+            "magSize":"18/24/27/30",
+            "reload":"2.4s/2.85s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784132711645184/hem.png"
+        },
+        "R301":{
+            "displayName":"R-301 Carbine",
+            "ammoType":"Light",
+            "damage":"14/28/11",
+            "RPM":"816",
+            "magSize":"18/20/25/28",
+            "reload":"2.4s/3.2s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785079832674394/r3.png"
+        },
+        "Flatline":{
+            "displayName":"VK-47 Flatline",
+            "ammoType":"Heavy",
+            "damage":"19/38/14",
+            "RPM":"600",
+            "magSize":"20/25/28/30",
+            "reload":"2.4s/3.1s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784130070151188/flat.png"
+        }
+    },
+
+    "SMG":
+    {
+        "Alternator":{
+            "displayName":"Alternator SMG",
+            "ammoType":"Light",
+            "damage":"16/24/13",
+            "RPM":"600",
+            "magSize":"19/22/25/27",
+            "reload":"1.9s/2.23s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785233385095188/alt.png"
+        },
+        "Prowler":{
+            "displayName":"Prowler Burst PDW",
+            "ammoType":"Unique",
+            "damage":"15/23/12",
+            "RPM":"800",
+            "magSize":"35",
+            "reload":"2.0s/2.6s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785291954618391/p.png"
+        },
+        "R99":{
+            "displayName":"R-99 SMG",
+            "ammoType":"Light",
+            "damage":"11/17/9",
+            "RPM":"1,080",
+            "magSize":"20/22/24/27",
+            "reload":"1.8s/2.45s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785324674252800/r99.png"
+        },
+        "Volt":{
+            "displayName":"Volt SMG",
+            "ammoType":"Energy",
+            "damage":"15/23/12",
+            "RPM":"720",
+            "magSize":"19/21/23/26",
+            "reload":"1.6s/2.25s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785426788909076/vlt.png"
+        }
+    },
+
+    "LMG":
+    {
+        "Devotion":{
+            "displayName":"Devotion LMG",
+            "ammoType":"Energy",
+            "damage":"16/32/14",
+            "RPM":"900",
+            "magSize":"36/40/44/48",
+            "reload":"2.8s/3.63s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785534804688906/devo.png"
+        },
+        "Lstar":{
+            "displayName":"L-STAR EMG",
+            "ammoType":"Energy",
+            "damage":"18/36/14",
+            "RPM":"600",
+            "magSize":"Gauge",
+            "reload":"1.15s/2.45s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784163020472370/ls.png"
+        },
+        "Spitfire":{
+            "displayName":"M600 Spitfire",
+            "ammoType":"Heavy",
+            "damage":"19/38/14",
+            "RPM":"540",
+            "magSize":"35/40/45/55",
+            "reload":"3.2s/3.8s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828785532074852352/sf.png"
+        }
+    },
+
+    "Sniper":
+    {
+        "Chargerifle":{
+            "displayName":"Charge Rifle",
+            "ammoType":"Sniper",
+            "damage":"45/56/45 (+45)",
+            "RPM":"30",
+            "magSize":"8",
+            "reload":"3.6s/3.6s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784165121294356/cr.png"
+        },
+        "Kraber":{
+            "displayName":"Kraber .50-Cal Sniper",
+            "ammoType":"Unique",
+            "damage":"145/435/116",
+            "RPM":"36",
+            "magSize":"4",
+            "reload":"3.2s/4.3s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784172759252992/kraber.png"
+        },
+        "Longbow":{
+            "displayName":"Longbow DMR",
+            "ammoType":"Sniper",
+            "damage":"55/110/44",
+            "RPM":"86",
+            "magSize":"6/8/10/12",
+            "reload":"2.66s/3.66s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784167235354654/lb.png"
+        },
+        "Sentinel":{
+            "displayName":"Sentinel",
+            "ammoType":"Sniper",
+            "damage":"70/140/63 (+25%)",
+            "RPM":"37.5",
+            "magSize":"4/5/6/7",
+            "reload":"2.5s/3.6s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784168951087114/sen.png"
+        },
+        "Tripletake":{
+            "displayName":"Triple Take",
+            "ammoType":"Sniper",
+            "damage":"69/138/63",
+            "RPM":"72",
+            "magSize":"6/7/8/9",
+            "reload":"2.6s/3.4s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784170964484126/tt.png"
+        }
+    },
+
+    "Shotgun":
+    {
+        "Eva8":{
+            "displayName":"EVA-8 Auto",
+            "ammoType":"Shotgun",
+            "damage":"63/99/63",
+            "RPM":"126",
+            "magSize":"8",
+            "reload":"2.75s/3.0s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784127577686036/eva.png"
+        },
+        "Peacekeeper":{
+            "displayName":"Peacekeeper",
+            "ammoType":"Unique",
+            "damage":"110/143/88",
+            "RPM":"58",
+            "magSize":"5",
+            "reload":"2.45s/3.35s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784123505016862/pk.png"
+        },
+        "Mastiff":{
+            "displayName":"Mastiff Shotgun",
+            "ammoType":"Shotgun",
+            "damage":"88/112/88",
+            "RPM":"66",
+            "magSize":"6",
+            "reload":"1.03s/1.7s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784126337351711/mast.png"
+        },
+        "Mozambique":{
+            "displayName":"Mozambique Shotgun",
+            "ammoType":"Shotgun",
+            "damage":"45/69/42",
+            "RPM":"180",
+            "magSize":"4",
+            "reload":"2.1s/2.6s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784124898574346/mzbq.png"
+        }
+    },
+
+    "Pistol":
+    {
+        "P2020":{
+            "displayName":"P2020",
+            "ammoType":"Light",
+            "damage":"15/23/14",
+            "RPM":"430",
+            "magSize":"12/14/16/18",
+            "reload":"1.25s/1.25s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784120573853776/p20.png"
+        },
+        "Re45":{
+            "displayName":"RE-45 Auto",
+            "ammoType":"Light",
+            "damage":"12/18/11",
+            "RPM":"750",
+            "magSize":"16/19/22/25",
+            "reload":"1.5s/1.95s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784121995067422/re.png"
+        },
+        "Wingman":{
+            "displayName":"Wingman",
+            "ammoType":"Heavy",
+            "damage":"45/90/41",
+            "RPM":"156",
+            "magSize":"6/7/8/9",
+            "reload":"2.1s/2.1s",
+            "imgUrl":"https://cdn.discordapp.com/attachments/828781149127966721/828784118778560532/wm.png"
+        }
+    }
+}

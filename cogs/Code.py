@@ -15,7 +15,7 @@ class Code(commands.Cog):
             r = await response.json()
 
         output = " " if not r["output"] else r["output"]
-        await ctx.send(f"```{output}```", delete_after=60)
+        await ctx.send(f"```{output}```", delete_after=180)
 
 
     @commands.command(aliases=["py", "py3"])
@@ -33,8 +33,16 @@ class Code(commands.Cog):
     @commands.command(aliases=["jf"])
     async def javaf(self, ctx, *, content: commands.clean_content):
         """`javaf [code]` run java code, automatically add class and main"""
-        content = "public class X{public static void main(String[] args){"+content.replace("```", "")+"}}"
+        content = """public class X{
+            public static void main(String[] args){
+                """+content.replace("```", "")+"}}"
         await self.run(ctx, "java", content)
+
+    @commands.command(aliases=["js"])
+    async def javascript(self, ctx, *, content: commands.clean_content):
+        """`javascript [code]` run java code, automatically add class and main"""
+        content = content.replace("```", "")
+        await self.run(ctx, "js", content)
 
     @commands.command()
     async def c(self, ctx, *, content: commands.clean_content):
