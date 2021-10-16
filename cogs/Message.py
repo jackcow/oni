@@ -17,10 +17,6 @@ class Message(commands.Cog):
             if prefix:
                 return await message.channel.send(f"> The prefix for this server is `'{prefix[0]}'`")
             return await message.channel.send("> The prefix for this server is `'.'`")
-        
-        # if "kys" in message.content:
-        #    await message.channel.send('> `HAHA YOU`')
-
 
 
 def setup(client):
