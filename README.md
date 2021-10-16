@@ -6,13 +6,13 @@ A discord bot written in python using the [discord.py](https://github.com/Rapptz
 ## Extensions ``"TODO LIST"``
 ### Music ``TESTING``
 Audio playback functionality
-### Fun ``WIP``
+### Fun
 Miscellaneous fun commands
-### Management ``WIP``
+### Management
 Tools to manage the server
-### Stocks
+### Stocks ``UPDATED``
 Basic ticker info
-### Apex
+### Apex ``UPDATED``
 Display Apex Legends player info
 ### Images
 Image modification and manipulation
