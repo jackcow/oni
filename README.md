@@ -4,10 +4,16 @@
 A discord bot written in python using the [discord.py](https://github.com/Rapptz/discord.py) API wrapper.
 
 ## Extensions ``"TODO LIST"``
-### Audio ``TESTING`` ``WIP``
+### Music ``TESTING``
 Audio playback functionality
 ### Fun ``WIP``
-Basic miscellaneous commands
+Miscellaneous fun commands
 ### Management ``WIP``
 Tools to manage the server
-### Stocks ``WIP``
+### Stocks
+Basic ticker info
+### Apex
+Display Apex Legends player info
+### Images
+Image modification and manipulation
+
