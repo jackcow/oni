@@ -15,6 +15,6 @@ Tools to manage the server
 Basic ticker info
 ### Apex ``UPDATED``
 Display Apex Legends player info
-### Images
+### Images ``OPENCV TO BE FIXED``
 Image modification and manipulation
 
